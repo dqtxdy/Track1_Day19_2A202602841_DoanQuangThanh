@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Option B · Học cùng AI Tutor</title>
+  <style>
+    :root { color-scheme: light; --ink:#182320; --muted:#68756f; --line:#dce5df; --paper:#f5f7f2; --white:#fff; --green:#176b52; --green-soft:#e8f3ed; --amber:#875a13; --amber-soft:#fff5dd; }
+    * { box-sizing:border-box }
+    body { margin:0; background:var(--paper); color:var(--ink); font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif }
+    header { background:#15392f; color:white; padding:15px max(22px,calc((100vw - 1040px)/2)); display:flex; justify-content:space-between; align-items:center; gap:14px }
+    header strong { letter-spacing:.02em } header span { color:#c6ddd2; font-size:14px }
+    main { width:min(960px,calc(100% - 32px)); margin:30px auto 56px }
+    .topline { display:flex; justify-content:space-between; color:var(--muted); font-size:14px; margin-bottom:13px }
+    .progress { display:flex; gap:7px; margin-bottom:22px }
+    .progress i { height:4px; flex:1; border-radius:4px; background:#dce5df }
+    .progress i.on { background:var(--green) }
+    .layout { display:grid; grid-template-columns:minmax(0,1fr) 270px; gap:18px; align-items:start }
+    .card,.side { background:var(--white); border:1px solid var(--line); border-radius:16px; padding:26px; box-shadow:0 5px 20px #1c35220a }
+    .side { padding:20px; color:var(--muted); font-size:14px }
+    h1 { font-size:25px; line-height:1.25; margin:0 0 8px; letter-spacing:-.02em }
+    h2 { font-size:18px; margin:23px 0 8px }
+    p { margin:8px 0 14px }
+    .muted { color:var(--muted) }
+    .course { display:flex; gap:8px; align-items:center; color:var(--muted); font-size:13px; margin:0 0 14px }
+    .course b { color:var(--ink) }
+    .course .dot { color:#a3b2a8 }
+    .problem { background:#f1f5f1; border:1px solid #e2ebe4; border-radius:12px; padding:17px; margin:19px 0 }
+    .problem b { display:block; margin-bottom:5px }
+    .formula { font-family:ui-monospace,SFMono-Regular,Consolas,monospace; background:#fff; padding:10px 12px; border-radius:8px; margin-top:9px; font-size:14px }
+    label { display:block; font-weight:650; margin:17px 0 6px }
+    textarea { width:100%; min-height:85px; border:1px solid #cbd7cf; border-radius:10px; padding:12px; color:var(--ink); font:inherit; resize:vertical }
+    textarea:focus,button:focus-visible { outline:3px solid #8ac4a9; outline-offset:2px }
+    .options { display:grid; gap:9px; margin:10px 0 }
+    .choice { display:flex; gap:10px; align-items:flex-start; border:1px solid var(--line); padding:11px 12px; border-radius:10px; cursor:pointer; font-weight:450 }
+    .choice:has(input:checked) { border-color:var(--green); background:var(--green-soft) }
+    input[type=radio] { accent-color:var(--green); margin-top:5px }
+    .actions { display:flex; flex-wrap:wrap; gap:9px; margin-top:20px }
+    button { border:0; border-radius:9px; padding:11px 15px; background:var(--green); color:white; font:650 15px system-ui; cursor:pointer }
+    button.secondary { background:#eef2ee; border:1px solid var(--line); color:var(--ink) }
+    button.text { background:transparent; color:var(--green); padding-left:4px }
+    button:hover { filter:brightness(.96) }
+    .note { background:var(--amber-soft); color:#634714; padding:11px 13px; border-radius:9px; font-size:14px; margin-top:17px }
+    .diagnosis { border-left:4px solid #d7a43e; background:#fffaf0; padding:14px 16px; border-radius:0 10px 10px 0; margin:16px 0 }
+    .diagnosis strong { display:block; color:var(--amber); margin-bottom:4px }
+    .quote { border-left:3px solid #b9c9bd; background:#f7f9f6; color:#53635a; padding:10px 12px; border-radius:0 8px 8px 0; font-size:14px; margin:12px 0 }
+    .mini-label { color:var(--muted); font-size:12px; font-weight:750; letter-spacing:.07em; text-transform:uppercase }
+    .explain-step { display:grid; grid-template-columns:28px 1fr; gap:10px; margin:14px 0; align-items:start }
+    .num { width:26px; height:26px; display:grid; place-items:center; border-radius:50%; background:#d5e9dc; color:#145941; font-weight:750; font-size:13px }
+    .step-copy strong { display:block; margin-bottom:2px }
+    .step-copy span { color:#52635a; font-size:14px }
+    .mathline { padding:12px 14px; background:#fff; border:1px solid #dbe8df; border-radius:9px; font-family:ui-monospace,SFMono-Regular,Consolas,monospace; font-size:14px; margin-top:10px }
+    .confidence { display:flex; justify-content:space-between; gap:12px; color:var(--muted); font-size:13px; border-top:1px solid #eee3cb; padding-top:10px; margin-top:11px }
+    .confidence b { color:#775719 }
+    .choice-row { display:flex; gap:9px; flex-wrap:wrap; margin:9px 0 }
+    .choice-row label { border:1px solid var(--line); border-radius:9px; padding:9px 11px; margin:0; font-weight:450; cursor:pointer }
+    .choice-row label:has(input:checked) { border-color:var(--green); background:var(--green-soft) }
+    .choice-row input { accent-color:var(--green) }
+    .explain { background:var(--green-soft); border-radius:12px; padding:17px; margin:17px 0 }
+    .pill { display:inline-block; font-size:12px; letter-spacing:.04em; font-weight:700; color:var(--green); background:var(--green-soft); padding:4px 8px; border-radius:99px; margin-bottom:10px }
+    .hidden { display:none !important }
+    .side h2 { font-size:16px; margin:0 0 8px; color:var(--ink) }
+    .side ul { padding-left:19px; margin:9px 0 }
+    .side li { margin:7px 0 }
+    .side .small { border-top:1px solid var(--line); margin-top:15px; padding-top:13px; font-size:13px }
+    .status { min-height:1.4em; color:#9a4b2d; font-size:14px; margin-top:8px }
+    .status.success { color:#285b42 }
+    @media(max-width:720px) { .layout{grid-template-columns:1fr} .side{order:2} main{margin-top:20px} .card{padding:21px} h1{font-size:22px} }
+  </style>
+</head>
+<body>
+  <header><strong>HỌC CÙNG AI TUTOR</strong><span>Option B · Cùng tìm điểm đang vướng</span></header>
+  <main>
+    <div class="topline"><span id="stepLabel">Bài tập hiện tại</span><span>Prototype · AI dùng câu trả lời mẫu</span></div>
+    <div class="progress" aria-label="Tiến trình"><i id="p1" class="on"></i><i id="p2"></i><i id="p3"></i></div>
+    <div class="layout">
+      <section class="card" aria-live="polite">
+        <div id="start">
+          <div class="course"><b>Machine Learning</b><span class="dot">/</span><span>Gradient descent</span><span class="dot">/</span><span>Bài tập 2</span></div>
+          <span class="pill">ĐANG LÀM BÀI</span>
+          <h1>Gradient descent: vì sao trừ đạo hàm?</h1>
+          <p class="muted">Bạn biết cách áp dụng công thức nhưng chưa chắc vì sao nó đưa tham số về phía loss nhỏ hơn.</p>
+          <div class="problem"><b>Bài đang làm</b>Cho <strong>f(w) = (w − 3)²</strong>, <strong>w₀ = 0</strong>, learning rate <strong>0.1</strong>.<br>Tính w₁ và giải thích vì sao cập nhật theo hướng này.
+            <div class="formula">w ← w − learning rate × f′(w)</div>
+          </div>
+          <p><strong>Điều gì đang vướng?</strong> Hãy mô tả bằng lời của bạn. Không cần biết chính xác nguyên nhân.</p>
+          <label for="thought">Điều gì trong bước cập nhật chưa rõ?</label>
+          <textarea id="thought" placeholder="Ví dụ: Mình chưa hiểu dấu trừ có tác dụng gì…"></textarea>
+          <div class="actions"><button id="begin">Cùng tìm thử</button></div>
+          <div id="startError" class="status" role="status"></div>
+        </div>
+
+        <div id="diagnostic" class="hidden">
+          <span class="pill">BƯỚC 1 / 2 · LÀM RÕ SUY NGHĨ</span>
+          <h1>AI muốn hiểu cách bạn đang nghĩ</h1>
+          <p class="muted">Ba câu ngắn giúp AI hình thành một giả thuyết. AI có thể hiểu sai; bạn sẽ xem căn cứ và quyết định có đi tiếp hay không.</p>
+          <div class="quote"><span class="mini-label">Bạn vừa mô tả</span><br>“<span id="thoughtEcho"></span>”</div>
+          <label>1. Với w₀ = 0, bạn có tính được f′(w₀) không?</label>
+          <div class="options">
+            <label class="choice"><input type="radio" name="q1" value="yes"> Có</label>
+            <label class="choice"><input type="radio" name="q1" value="no"> Chưa chắc</label>
+          </div>
+          <label>2. Bạn có biết f′(w) dương nói gì về f(w) khi w tăng không?</label>
+          <div class="options">
+            <label class="choice"><input type="radio" name="q2" value="yes"> Có</label>
+            <label class="choice"><input type="radio" name="q2" value="no"> Chưa chắc</label>
+          </div>
+          <label>3. Bạn cần nhất điều gì lúc này?</label>
+          <div class="options">
+            <label class="choice"><input type="radio" name="q3" value="example"> Một ví dụ trực quan</label>
+            <label class="choice"><input type="radio" name="q3" value="foundation"> Ôn lại kiến thức nền</label>
+          </div>
+          <div class="actions"><button id="suggest">Xem giả thuyết của AI</button><button class="secondary" id="backStart">Quay lại</button></div>
+          <div id="diagError" class="status" role="status"></div>
+        </div>
+
+        <div id="review" class="hidden">
+          <span class="pill">BƯỚC 2 / 2 · BẠN QUYẾT ĐỊNH</span>
+          <h1>Đây có phải điểm bạn đang vướng?</h1>
+          <div class="diagnosis"><strong>Giả thuyết của AI</strong><span id="guessText"></span><p class="muted" style="margin:10px 0 0">Căn cứ từ câu trả lời của bạn:</p><div class="quote" style="background:#fff;margin-bottom:0">“<span id="evidenceText"></span>”<br><span id="reasonText"></span></div><div class="confidence"><span>Độ chắc chắn</span><b>Thấp · cần bạn xác nhận</b></div></div>
+          <label for="correction">Bạn có thể sửa giả thuyết trước khi xem lời giải</label>
+          <textarea id="correction" placeholder="Nếu chưa đúng, điều gì mới là điểm bạn chưa hiểu?"></textarea>
+          <div class="actions"><button id="accept">Đúng, giải thích điểm này</button><button class="secondary" id="reject">Chưa đúng, sửa hướng tìm</button><button class="text" id="skip">Quay lại bài, bỏ qua trợ giúp</button></div>
+          <div id="reviewError" class="status" role="status"></div>
+        </div>
+
+        <div id="result" class="hidden">
+          <span class="pill">GIẢI THÍCH · BẠN CÓ THỂ QUAY LẠI BẤT CỨ LÚC NÀO</span>
+          <h1 id="resultTitle">Đi ngược độ dốc để giảm hàm mục tiêu</h1>
+          <p class="muted" id="personalized"></p>
+          <div class="explain"><strong>Ta đi từng bước, chỉ tập trung vào hướng cập nhật</strong>
+            <div class="explain-step"><span class="num">1</span><div class="step-copy"><strong>Đạo hàm là độ dốc tại vị trí hiện tại</strong><span>Với f′(0) = −6, đồ thị đang dốc xuống khi w tăng từ 0.</span></div></div>
+            <div class="explain-step"><span class="num">2</span><div class="step-copy"><strong>Muốn f giảm, ta đi theo hướng dương</strong><span>Ở điểm này, tăng w làm f nhỏ đi. Gradient descent trừ đạo hàm nên số âm biến thành bước tăng w.</span></div></div>
+            <div class="explain-step"><span class="num">3</span><div class="step-copy"><strong>Learning rate đặt độ dài bước</strong><span>0.1 nhân với độ dốc −6 tạo bước +0.6. Hướng do dấu gradient quyết định; learning rate chỉ co giãn bước.</span></div></div>
+            <div class="mathline">f′(0) = 2(0 − 3) = −6<br>w₁ = 0 − 0.1 × (−6) = 0.6</div>
+          </div>
+          <h2>Thử với ví dụ khác (tùy chọn)</h2>
+          <p>Với f(w) = (w + 2)² tại w = 0, w sẽ tăng hay giảm sau một bước gradient descent? Vì sao?</p>
+          <label for="transfer">Câu trả lời của bạn</label>
+          <textarea id="transfer" placeholder="Viết suy nghĩ của bạn…"></textarea>
+          <label>Mức độ chắc chắn của bạn (tự đánh giá)</label>
+          <div class="choice-row"><label><input type="radio" name="confidence" value="low"> Chưa chắc</label><label><input type="radio" name="confidence" value="mid"> Khá chắc</label><label><input type="radio" name="confidence" value="high"> Có thể giải thích lại</label></div>
+          <div class="actions"><button class="secondary" id="showTransfer">Xem đáp án để tự đối chiếu</button></div>
+          <div id="transferAnswer" class="note hidden">f′(0) = 4 nên w₁ = 0 − 0.1 × 4 = −0.4: w giảm. Hãy tự đối chiếu với cách giải thích của bạn; câu này không được dùng làm đánh giá chính thức.</div>
+          <div class="actions"><button id="returnTask">Quay lại bài đang làm</button><button class="secondary" id="restart">Thử lại từ đầu</button></div>
+        </div>
+      </section>
+
+      <aside class="side"><h2>Quyền quyết định của bạn</h2><ul><li>AI chỉ dùng nội dung trong bài đang mở và câu trả lời bạn nhập.</li><li>AI hỏi tối đa 3 câu rồi nêu giả thuyết kèm căn cứ.</li><li>Bạn có thể sửa, từ chối hoặc bỏ qua mà không mất bài đang làm.</li><li>Giải thích chỉ mở sau khi bạn xác nhận.</li></ul><div class="small"><b>Giới hạn trong bản thử</b><br>AI là câu trả lời mẫu, không thực sự phân tích văn bản tự do. Nội dung không được gửi đi hoặc lưu lại.</div></aside>
+    </div>
+  </main>
+  <script>
+    const screens = ['start','diagnostic','review','result'];
+    const $ = id => document.getElementById(id);
+    function show(name) {
+      screens.forEach(s => $(s).classList.toggle('hidden', s !== name));
+      const n = name === 'start' ? 1 : name === 'result' ? 3 : 2;
+      ['p1','p2','p3'].forEach((id,i) => $(id).classList.toggle('on', i < n));
+      $('stepLabel').textContent = name === 'start' ? 'Bài tập hiện tại' : name === 'diagnostic' ? 'Cùng làm rõ điểm vướng' : name === 'review' ? 'Kiểm tra giả thuyết' : 'Giải thích và tự đối chiếu';
+    }
+    function selected(name) { return document.querySelector(`input[name="${name}"]:checked`)?.value; }
+    function makeGuess() {
+      const derivative = selected('q1'), sign = selected('q2'), need = selected('q3');
+      let result;
+      if (derivative === 'no') result = { title:'Có thể bạn cần ôn lại cách tính đạo hàm trước', reason:'Bạn cho biết chưa chắc cách tính f′(w₀); đây có thể là bước cần làm rõ trước khi xét hướng cập nhật.' };
+      else if (sign === 'no') result = { title:'Có thể bạn cần nối dấu đạo hàm với hướng giảm loss', reason:'Bạn nói chưa chắc dấu đạo hàm cho biết gì khi w tăng; đây có thể là điểm vướng trong bước chọn hướng.' };
+      else if (need === 'example') result = { title:'Có thể một ví dụ trực quan sẽ giúp nối công thức với hướng cập nhật', reason:'Bạn cho biết muốn xem một ví dụ trực quan; đây là hướng hỗ trợ bạn đang ưu tiên.' };
+      else result = { title:'Có thể bạn muốn ôn lại nền tảng về độ dốc trước', reason:'Bạn cho biết muốn ôn kiến thức nền; đây là lựa chọn hỗ trợ của bạn, không phải kết luận về năng lực.' };
+      $('guessText').textContent = result.title;
+      $('evidenceText').textContent = $('thought').value.trim();
+      $('reasonText').textContent = result.reason;
+      $('personalized').textContent = $('correction').value.trim() ? `Bạn đã bổ sung: “${$('correction').value.trim()}”. Phần dưới đây là nội dung mẫu về gradient descent; nếu chưa khớp, hãy quay lại bài hoặc thử lại.` : `Bạn xác nhận giả thuyết này. Nếu lời giải chưa khớp, có thể quay lại bài hoặc thử lại.`;
+    }
+    $('begin').addEventListener('click', () => {
+      if (!$('thought').value.trim()) { $('startError').textContent = 'Hãy viết ngắn điều bạn đang chưa rõ, hoặc quay lại bài nếu bạn chưa muốn chia sẻ.'; return; }
+      $('startError').textContent = ''; $('thoughtEcho').textContent = $('thought').value.trim(); show('diagnostic');
+    });
+    $('backStart').addEventListener('click', () => show('start'));
+    $('suggest').addEventListener('click', () => {
+      if (!selected('q1') || !selected('q2') || !selected('q3')) { $('diagError').textContent = 'Chọn một câu trả lời ở cả ba mục để xem giả thuyết.'; return; }
+      $('diagError').textContent = ''; makeGuess(); show('review');
+    });
+    $('accept').addEventListener('click', () => { makeGuess(); $('resultTitle').textContent = 'Giải thích cho bài đang làm'; show('result'); });
+    $('reject').addEventListener('click', () => {
+      if (!$('correction').value.trim()) { $('reviewError').textContent = 'Bạn có thể ghi một câu mô tả điểm chưa đúng, hoặc bỏ qua để quay lại bài.'; $('correction').focus(); return; }
+      $('reviewError').textContent = '';
+      $('thought').value = $('correction').value.trim();
+      $('thoughtEcho').textContent = $('thought').value;
+      document.querySelectorAll('input[type=radio]').forEach(x => x.checked = false);
+      $('resultTitle').textContent = 'Bạn đã sửa điểm cần làm rõ';
+      show('diagnostic');
+    });
+    function returnToTask() {
+      $('startError').classList.add('success');
+      $('startError').textContent = 'Bạn đã quay lại bài. Không có thay đổi nào được áp dụng; có thể tiếp tục từ bước đang làm.';
+      show('start');
+    }
+    $('skip').addEventListener('click', returnToTask);
+    $('showTransfer').addEventListener('click', () => $('transferAnswer').classList.remove('hidden'));
+    $('returnTask').addEventListener('click', returnToTask);
+    $('restart').addEventListener('click', () => {
+      $('thought').value = ''; $('correction').value = ''; $('transfer').value = ''; $('transferAnswer').classList.add('hidden'); $('startError').textContent = ''; $('startError').classList.remove('success');
+      document.querySelectorAll('input[type=radio]').forEach(x => x.checked = false);
+      $('resultTitle').textContent = 'Đi ngược độ dốc để giảm hàm mục tiêu'; show('start');
+    });
+  </script>
+</body>
+</html>
