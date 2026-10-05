@@ -2,8 +2,8 @@
 
 ## 1. Công cụ và phạm vi
 
-- **Codex:** hỗ trợ rà soát, chỉnh nội dung README, prototype và feedback notes trong lượt hoàn thiện này.
-- Log này ghi phần tôi sử dụng AI cho Option B và cho việc hoàn thiện phần cá nhân; 
+- **Codex:** hỗ trợ rà soát, chỉnh nội dung README, prototype và feedback notes trong lượt hoàn thiện này; ở lượt hiện tại, hỗ trợ bổ sung kịch bản test Chặng 5, ghi rõ thiếu Practice Notes Day 17 và đồng bộ khai báo AI trong README.
+- Log này ghi phần tôi sử dụng AI cho Option B và cho việc hoàn thiện phần cá nhân.
 
 ## 2. AI đã hỗ trợ việc gì
 
@@ -13,6 +13,7 @@
 | Prototype B | Soạn HTML/CSS/JS cho prototype dùng canned output và tinh chỉnh copy, nhánh chẩn đoán, recovery, câu transfer. | Xác định nội dung học, fixture, cơ chế tương tác và giới hạn prototype; không dùng API/model thật. |
 | Human–AI Design và test setup | Giúp tổ chức Expectation, Role & Agency, Evidence & Uncertainty, Control & Recovery; diễn đạt prompt test, task và observation focus. | Rà lại để khớp với Option B và flow A/B/C dùng chung. |
 | Feedback/README | Sắp xếp note do tôi cung cấp thành các lớp OBSERVED, INTERPRETED, NEXT CHANGE, STILL UNPROVEN; rà tên tester, facilitator, lựa chọn và thứ tự. | Đối chiếu với `prototype-feedback-note.md`; xác nhận phiên tôi dẫn dắt là Nguyễn Văn Thăng, chọn A, thứ tự A → B → C. |
+| README Chặng 5 và Evidence Huddle | Soạn cấu trúc test script và huddle; ghi Practice Notes Day 17 là thiếu khi không tìm thấy note gốc trong repository; đồng bộ khai báo công cụ với log chi tiết. | Cung cấp yêu cầu và giới hạn; giữ evidence tổng hợp hiện có tách biệt với ba note gốc, không thêm quote hoặc hành vi; xác nhận Codex là công cụ có log chi tiết. |
 | Rà prototype nhóm | Phát hiện B trong trang A/B/C hiện lời giải ngay sau gợi ý; đề xuất và thêm trạng thái xác nhận riêng trước khi mở giải thích. | Quyết định giữ agency của Option B: tester xác nhận gợi ý trước khi xem lời giải. |
 
 Các prompt dưới đây là **tóm tắt nội dung yêu cầu**, không phải transcript nguyên văn:

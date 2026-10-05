@@ -44,6 +44,24 @@
 - Mức độ nghiêm trọng: 30–45 phút có ảnh hưởng tới deadline, điểm số hay động lực học không.
 - Hậu quả của "hiểu nông": chưa có sự kiện cụ thể learner làm được bài tương tự rồi thất bại khi dạng bài thay đổi.
 
+### Evidence Huddle — Day 17
+
+Repository hiện không có ba Practice Note Day 17 gốc để đối chiếu hoặc gán evidence riêng cho từng note. Bảng dưới giữ rõ trạng thái nguồn; không suy dựng nội dung còn thiếu.
+
+| Practice Note | Raw Fact | Interpretation |
+|---|---|---|
+| Note 1 | Not available in the current repository evidence. Must be copied from the original Day 17 Practice Note before submission. | Chưa thể diễn giải note khi chưa có nguồn gốc. |
+| Note 2 | Not available in the current repository evidence. Must be copied from the original Day 17 Practice Note before submission. | Chưa thể diễn giải note khi chưa có nguồn gốc. |
+| Note 3 | Not available in the current repository evidence. Must be copied from the original Day 17 Practice Note before submission. | Chưa thể diễn giải note khi chưa có nguồn gốc. |
+
+Do not reconstruct or invent missing Day 17 evidence. README hiện có một bản tổng hợp evidence ban đầu từ một learner: người học bị kẹt ở lý do cập nhật parameter theo hướng giảm loss, chuyển qua slide, ví dụ, Google, YouTube và ChatGPT, mất khoảng 30–45 phút; phần này chưa thể thay thế ba Practice Notes gốc.
+
+**Hypothesis Problem hiện tại:** Khi đang làm bài tập và bị kẹt ở một khái niệm, learner khó hiểu đủ để tiếp tục vì không xác định được chỗ hổng và lời giải thích phù hợp; việc tìm kiếm nhiều nguồn mất thời gian và vẫn để lại nghi ngờ về mức độ hiểu.
+
+**Evidence ban đầu hỗ trợ hypothesis:** bản ghi tổng hợp Day 17 trong README mô tả một learner biết áp dụng công thức gradient descent nhưng không hiểu vì sao cập nhật theo hướng đó giảm loss; sau nhiều nguồn và 30–45 phút, learner vẫn không chắc đã hiểu ngoài ví dụ.
+
+**Still Unproven:** hiện mới có một sự kiện từ một learner; chưa rõ tần suất, nguyên nhân gốc, mức ảnh hưởng của thời gian tìm kiếm, hay liệu hiểu nông dẫn đến thất bại khi dạng bài đổi.
+
 ## 3. Three Solution Options
 
 Ba options cùng giải một task: learner bị kẹt ở khái niệm gradient descent cần xác định chỗ hổng và hiểu đủ để quay lại bài. Chúng khác nhau ở **ai khởi động** và **ai chẩn đoán chỗ hổng**. Cả ba kết thúc bằng cùng một câu kiểm tra ở dạng khác, f(w) = (w + 2)², để đo learner hiểu thật hay chỉ hiểu đúng ví dụ.
@@ -64,6 +82,24 @@ Ba options cùng giải một task: learner bị kẹt ở khái niệm gradient
 - **Human–AI Decision Table:** viết bốn quyết định thiết kế (Expectation, Role & Agency, Evidence & Uncertainty, Control & Recovery), bảng quyết định cho cả A/B/C và phần Feedback & data check trong [three-option-design-sheet.md](three-option-design-sheet.md).
 - **Hỗ trợ đồng đội:** viết kịch bản test chung (câu hỏi relevant context, outcome task, observation focus, luật facilitation, thứ tự xoay vòng A-B-C / B-C-A / C-A-B); chuẩn hoá Feedback Note của Thăng và Nam về cùng cấu trúc; tổng hợp 3 phiên vào [group-feedback-synthesis.md](group-feedback-synthesis.md).
 - **Kiểm thử:** làm facilitator cho phiên test với Nguyễn Văn Thăng trên cả A, B, C; note chi tiết: [prototype-feedback-note.md](prototype-feedback-note.md).
+
+## Test Script / Chặng 5 — Kịch bản thử nghiệm
+
+**Relevant Context Question:** Hãy kể về lần gần đây nhất bạn bị kẹt khi học một khái niệm kỹ thuật và đã làm gì để tiếp tục.
+
+**Outcome Task (dùng giống nhau cho A/B/C):** Với bài gradient descent trên `f(w) = (w − 3)²`, hãy xác định điều cần hiểu để giải thích vì sao cập nhật đi ngược hướng gradient, rồi dùng hiểu biết đó để tiếp tục bài tập.
+
+**Observation Focus:**
+
+- **First Action:** Ghi lại thao tác đầu tiên tester tự chọn.
+- **Hesitation:** Ghi điểm dừng, do dự hoặc thao tác thử lại.
+- **Evidence Read / Ignored:** Ghi bằng chứng nào tester đọc hoặc bỏ qua.
+- **Misunderstanding:** Ghi điều tester hiểu khác với thiết kế dự kiến.
+- **Help Needed:** Ghi lúc tester cần trợ giúp và loại trợ giúp cần.
+- **Correction / Recovery:** Ghi cách tester sửa hướng hoặc lấy lại quyền kiểm soát.
+- **Selected Option & Trade-offs:** Ghi lựa chọn cuối và lý do/đánh đổi tester nêu.
+
+**Facilitation Rules:** Tester tự thao tác chuột/bàn phím; giữ nguyên task trên cho A/B/C. Facilitator không chỉ nút, không giải thích icon, không mớm lời và không hỏi “Bạn có thích không?”. Khi tester hỏi cách dùng, ưu tiên hỏi lại để hiểu họ đang nghĩ hệ thống hoạt động thế nào.
 
 ## 5. Dữ liệu kiểm thử & bài học
 
@@ -107,8 +143,8 @@ Chọn **Option B — Cùng AI chẩn đoán** làm cơ chế chính, và thêm 
 
 ## 6. AI Support Log
 
-- **Công cụ:** Claude Code trong VS Code được ghi nhận cho công việc prototype/lab trước đó; Codex hỗ trợ rà soát và chỉnh README, prototype, feedback notes trong lượt hoàn thiện này.
-- **AI hỗ trợ cá nhân:** chuyển cơ chế Option B thành flow và nội dung prototype; diễn đạt Human–AI decisions cho B; chuẩn bị prompt và observation focus; định dạng feedback note dựa trên dữ liệu tester tôi cung cấp; rà sự nhất quán giữa vai trò cá nhân, thứ tự test và các note.
+- **Công cụ có ghi nhận chi tiết:** Codex. Hỗ trợ phát triển flow và nội dung prototype B, diễn đạt Human–AI decisions, chuẩn bị prompt/task/observation focus, sắp xếp feedback note từ dữ liệu nhóm cung cấp, rà tính nhất quán giữa vai trò, thứ tự test và các note.
+- **Tôi kiểm tra và chỉnh sửa:** chọn nội dung và cơ chế Option B; đối chiếu observation với feedback notes; sửa sai lệch về tester, facilitator, lựa chọn và thứ tự; quyết định learner phải xác nhận hoặc sửa chẩn đoán trước khi xem giải thích.
 - **Tôi quyết định và cung cấp:** Option B là phần tôi phụ trách; nội dung thật của phiên do tôi dẫn dắt lấy từ `prototype-feedback-note.md` (Nguyễn Văn Thăng, chọn A); chi tiết phiên Đặng Văn Thái Anh do đồng đội Trần Đức Quân dẫn dắt được giữ ở note riêng. Tôi kiểm tra và xác nhận các sửa đổi theo những note đó.
 - **Giới hạn:** AI không tham gia các buổi test và không tạo observation/quote thật. Một bộ review giả lập từng được tạo theo yêu cầu để minh họa format; bộ đó được đánh dấu rõ là mẫu luyện tập, không dùng thay feedback thật. Prototype dùng canned output, không kết nối model/API.
 - **Sai sót và cách tôi sửa:** AI ban đầu đặt nhầm phiên của Quân vào phần test cá nhân của tôi; tôi chỉ rõ phải theo note của Thăng, sau đó sửa facilitator, tester, lựa chọn và thứ tự. Khi phát hiện thứ tự trong note khác bảng tổng hợp, tôi lấy note cá nhân làm nguồn chi tiết và cập nhật phần tổng hợp để phản ánh khả năng ảnh hưởng của thứ tự. AI cũng phát hiện bản B tích hợp hiển thị lời giải trước khi learner xác nhận; đã thêm bước xác nhận riêng.
